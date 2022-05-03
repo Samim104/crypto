@@ -5,7 +5,7 @@ import Context from "./Context/Context"
 import Card from "./Components/Card"
 function Home() {
   const data = useContext(Context)
-  const [input, setinput] = useState()
+  const [input, setinput] = useState("")
   const changeHandler = () => {
     setinput(event.target.value)
   }
@@ -23,9 +23,9 @@ function Home() {
           if (val.name.startsWith(input)) {
             return <Card key={key} name={val.name} symbol={val.symbol} img={val.image} marketcap={val.market_cap} price={val.current_price} low={val.low_24h} high={val.high_24h} />
           }
-      if(input===""){
-        return <Card key={key} name={val.name} symbol={val.symbol} img={val.image} marketcap={val.market_cap} price={val.current_price} low={val.low_24h} high={val.high_24h} />
-      }
+          if (input === "") {
+            return <Card key={key} name={val.name} symbol={val.symbol} img={val.image} marketcap={val.market_cap} price={val.current_price} low={val.low_24h} high={val.high_24h} />
+          }
 
         })}
       </div>
